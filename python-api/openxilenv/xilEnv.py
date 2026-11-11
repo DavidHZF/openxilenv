@@ -965,6 +965,8 @@ class XilEnv:
 		----------
 		iniFilePath : str
 			Path to the INI configuration file.
+		Instance : str
+			Name of the XilEnv instance.
 		timeoutInSec : int, optional
 			Number of seconds to wait for connection (default is 5).
 
@@ -983,6 +985,8 @@ class XilEnv:
 		----------
 		iniFilePath : str
 			Path to the INI configuration file.
+		Instance : str
+			Name of the XilEnv instance.
 		timeoutInSec : int, optional
 			Number of seconds to wait for connection (default is 5).
 
@@ -1038,6 +1042,8 @@ class XilEnv:
 		----------
 		iniFilePath : str
 			Path to the INI configuration file.
+		Instance : str
+			Name of the XilEnv instance.
 		startWithGUI : bool
 			If True, start with GUI; otherwise, start without GUI.
 		timeoutInSec : int
@@ -2416,6 +2422,8 @@ class XilEnv:
 			result = self.__lib.XilEnv_WriteFrameWaitReadFrame(
 				vidArray, None, valueArray, listSize, vidArray, None, valueArrayToReturn, listSize
 			)
+			if result != 0:
+				return result
 			return list(valueArrayToReturn)
 		else:
 			return -1
